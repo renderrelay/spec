@@ -98,7 +98,7 @@ Note that handshake messages do not include `data.device` — the `device` field
 
 ## Device Events
 
-FRP device events (`shot_trigger`, `ball_flight`, `club_path`, `face_impact`, `shot_finished`, `device_info`) carry launch monitor data. Sent by whichever RRP endpoint holds the FRP device role. The FRP envelope fields (`device`) and the FRP event fields (`kind` and all event-specific fields) are flattened into `data`:
+FRP device events (`shot_trigger`, `ball_flight`, `club_path`, `face_impact`, `shot_finished`, `device_telemetry`) carry launch monitor data. Sent by whichever RRP endpoint holds the FRP device role. The FRP envelope fields (`device`) and the FRP event fields (`kind` and all event-specific fields) are flattened into `data`:
 
 | FRP envelope | RRP extension |
 |-------------|---------------|
@@ -109,14 +109,14 @@ FRP messages without the `device`/`event` envelope (handshake messages, protocol
 
 Either side may send FRP `alert` messages. Device-specific alerts include `data.device` (e.g. hardware warning on a particular launch monitor). Protocol-level alerts (e.g. incompatible FRP version, controller shutting down) omit `data.device` but still use the tunneled `ext` format. RRP's native `alert` message is reserved for RRP-level issues — FRP alerts must not be sent as RRP alerts.
 
-**`device_info` example** (no `key`, event fields flattened into `data`):
+**`device_telemetry` example** (no `key`, event fields flattened into `data`):
 ```json
 {
   "type": "ext",
   "ext": "golf.frp",
   "data": {
     "device": "EagleOne-X4K2",
-    "kind": "device_info",
+    "kind": "device_telemetry",
     "manufacturer": "Birdie Labs",
     "model": "Eagle One",
     "firmware": "1.2.0",
