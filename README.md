@@ -107,7 +107,7 @@ Repository: `renderrelay/example-server` (coming soon)
 
 | Language | Repository               | Status  |
 | -------- | ------------------------ | ------- |
-| Rust     | `renderrelay/sdk-rust`   | Planned |
+| Rust     | [`renderrelay/sdk-rust`](https://github.com/renderrelay/sdk-rust) | Available |
 | Python   | `renderrelay/sdk-python` | Planned |
 | Node.js  | `renderrelay/sdk-node`   | Planned |
 
