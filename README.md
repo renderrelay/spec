@@ -2,6 +2,8 @@
 
 **The open standard for server-rendered streaming applications on TVs and displays.**
 
+[Read the full spec →](SPEC.md)
+
 ---
 
 ## The Problem
@@ -30,11 +32,12 @@ The renderer owns all logic. The viewer never needs to be updated. One `rrp://` 
 - **Streaming video is solved.** LL-HLS delivers 1–3 second latency natively on every modern TV platform. For non-gaming applications this is imperceptible.
 - **WebSocket is universal.** Every platform that can run a video player can open a WebSocket.
 - **Rendering hardware is cheap.** A $150 mini PC in a closet can render a beautiful UI and stream it to every TV in a house simultaneously.
-- **The web proved the model.** Nobody ships a Samsung-specific executable anymore. They ship a URL. RRP extends that idea to the living room.
+- **The web proved the model.** Nobody ships a manufacturer-specific executable anymore. They ship a URL. RRP extends that idea to the living room.
 
 ## What It Looks Like
 
 **For users:**
+
 - Open the RRP app on your TV
 - Your renderer appears automatically (mDNS, zero configuration)
 - Or enter an `rrp://` URL for a hosted service
@@ -42,12 +45,14 @@ The renderer owns all logic. The viewer never needs to be updated. One `rrp://` 
 - Done
 
 **For developers:**
+
 - Build a renderer, render whatever you want, stream it out as LL-HLS
 - Accept WebSocket connections and listen for key events
 - No SDK. No app store. No review process. No per-platform builds.
 - Ship updates instantly — your users see them the next time they connect
 
 **For TV manufacturers:**
+
 - Implement one simple viewer: WebSocket + video player + mDNS
 - Your TV becomes compatible with every RRP service ever built
 - No app ecosystem to maintain. No third-party quality problems to own.
@@ -55,7 +60,7 @@ The renderer owns all logic. The viewer never needs to be updated. One `rrp://` 
 
 ## The Vision
 
-Today a golf simulator company must ship and maintain separate apps for Roku, Apple TV, Fire TV, Samsung, and LG — just to appear on a TV. With RRP they ship one renderer, publish one URL, and it works everywhere there is a compliant viewer.
+Today a streaming services company must ship and maintain separate apps for Roku, Apple TV, Fire TV, Samsung, and LG — just to appear on a TV. With RRP they ship one renderer, publish one URL, and it works everywhere there is a compliant viewer.
 
 Tomorrow, if Samsung ships RRP support in firmware, that URL works on every Samsung TV ever made, forever, with no app store involved.
 
@@ -79,7 +84,8 @@ RRP defines:
 RRP is designed to outlive any particular use case. The extension system allows domain-specific hardware to speak a standard language without modifying the core protocol.
 
 **Available extensions:**
-- [`golf.frp`](extensions/GOLF.md) — tunnels [Flight Relay Protocol](https://github.com/flightrelay/spec) events and commands for launch monitor data
+
+- [`golf.frp`](extensions/GOLF.md) — tunnels [Flight Relay Protocol](https://github.com/flightrelay/spec) events and commands for launch monitor data, coupled with RRP enables cloud-rendered golf simulator software that uses a standard remote for aiming and switching clubs
 
 Anyone can propose extensions via this repository. Vendor-specific extensions use reverse-domain namespacing (`birdielabs.golf.frp`).
 
@@ -91,19 +97,19 @@ Repository: `renderrelay/example-server` (coming soon)
 
 ## Viewers
 
-| Platform | Repository | Status |
-|----------|------------|--------|
-| Roku | `renderrelay/roku-app` | Planned |
-| Apple TV | `renderrelay/appletv-app` | Planned |
-| Web (browser) | `renderrelay/web-client` | Planned |
+| Platform      | Repository                | Status  |
+| ------------- | ------------------------- | ------- |
+| Roku          | `renderrelay/roku-app`    | Planned |
+| Apple TV      | `renderrelay/appletv-app` | Planned |
+| Web (browser) | `renderrelay/web-client`  | Planned |
 
 ## Renderer SDKs
 
-| Language | Repository | Status |
-|----------|------------|--------|
-| Rust | `renderrelay/sdk-rust` | Planned |
-| Python | `renderrelay/sdk-python` | Planned |
-| Node.js | `renderrelay/sdk-node` | Planned |
+| Language | Repository               | Status  |
+| -------- | ------------------------ | ------- |
+| Rust     | `renderrelay/sdk-rust`   | Planned |
+| Python   | `renderrelay/sdk-python` | Planned |
+| Node.js  | `renderrelay/sdk-node`   | Planned |
 
 ## View-Only and Passive Displays
 
@@ -120,13 +126,6 @@ RRP Renderer
 ```
 
 The HLS stream URL is a plain HTTP endpoint. On a local LAN renderer with `"auth": "none"`, it is openly accessible to any player on the network. Share the URL and it just works.
-
-**Example use cases:**
-- Golf sim in the garage with a control screen at the hitting bay and a spectator screen across the room
-- Broadcast the sim to a TV in another room while someone else is playing
-- Record or capture the stream directly with FFmpeg or OBS
-
-No RRP involvement needed on passive screens. No app to install. No configuration.
 
 ## TLS and Secure Connections
 
@@ -160,11 +159,9 @@ RRP is in early draft. The spec is open for feedback.
 - [ ] Reference renderer (Rust)
 - [ ] Roku viewer
 - [ ] Apple TV viewer
-- [ ] renderrelay.org
 
 Feedback, issues, and pull requests welcome.
 
 ## License
 
 The Render Relay Protocol specification is [CC0](LICENSE) — no rights reserved. Implement it freely, in any product, open or closed, without attribution.
-
