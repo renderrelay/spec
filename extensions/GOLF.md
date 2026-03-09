@@ -159,7 +159,7 @@ Either side may send FRP `alert` messages. Device-specific alerts include `data.
 
 ## Controller Commands
 
-FRP commands (`set_detection_mode`) control the launch monitor's detection mode. Sent by the FRP controller to the FRP device. The FRP command payload is placed directly in `data`:
+FRP commands (`set_detection_mode`) control the launch monitor's detection parameters. Sent by the FRP controller to the FRP device. The FRP command payload is placed directly in `data`:
 
 ```json
 {
@@ -167,7 +167,8 @@ FRP commands (`set_detection_mode`) control the launch monitor's detection mode.
   "ext": "golf.frp",
   "data": {
     "kind": "set_detection_mode",
-    "mode": "chipping"
+    "mode": "chipping",
+    "handed": "rh"
   }
 }
 ```
