@@ -237,7 +237,7 @@ Viewers should forward these when the remote supports them. Renderers may use th
 
 ### Extension Events
 
-Extension events are **bidirectional** — both renderers and viewers may send them. This enables hardware viewers (launch monitors, sensors, gamepads) to push domain-specific data to the renderer, and renderers to send commands back (e.g. detection mode changes). Either side must ignore extension types it does not support.
+Extension events are **bidirectional** — both renderers and viewers may send them. This enables hardware viewers (launch monitors, sensors, gamepads) to push domain-specific data to the renderer, and renderers to send commands back (e.g. selecting the golfer or club). Either side must ignore extension types it does not support.
 
 Extensions are namespaced to avoid collisions:
 
@@ -296,7 +296,7 @@ Either side must ignore extensions it does not recognize.
 
 | Namespace | Spec | Description |
 |-----------|------|-------------|
-| `golf.frp` | [extensions/GOLF.md](extensions/GOLF.md) | Tunnels [Flight Relay Protocol](https://github.com/flightrelay/spec) events and commands for launch monitor data |
+| `golf.frp` | [extensions/GOLF.md](extensions/GOLF.md) | Tunnels the [Flight Relay Protocol](https://github.com/flightrelay/spec) bus (launch monitor, golfer and game messages) |
 
 ---
 

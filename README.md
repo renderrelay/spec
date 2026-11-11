@@ -85,7 +85,7 @@ RRP is designed to outlive any particular use case. The extension system allows 
 
 **Available extensions:**
 
-- [`golf.frp`](extensions/GOLF.md) — tunnels [Flight Relay Protocol](https://github.com/flightrelay/spec) events and commands for launch monitor data, coupled with RRP enables cloud-rendered golf simulator software that uses a standard remote for aiming and switching clubs
+- [`golf.frp`](extensions/GOLF.md) — tunnels the [Flight Relay Protocol](https://github.com/flightrelay/spec) bus (actors, shots, golfer and game state) over the RRP connection, coupled with RRP enables cloud-rendered golf simulator software that uses a standard remote for aiming and switching clubs
 
 Anyone can propose extensions via this repository. Vendor-specific extensions use reverse-domain namespacing (`birdielabs.golf.frp`).
 
